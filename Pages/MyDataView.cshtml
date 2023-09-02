@@ -1,0 +1,52 @@
+﻿@page
+@model Razor_page.Pages.MyDataViewModel
+@{
+}
+
+<div class="justify-content-center">
+    <p>
+        <strong><label asp-for=@Model.PersonInfo.Name></label></strong>
+        <label>@Model.PersonInfo?.Name</label>
+    </p>
+    <p>
+        <strong>
+            <label asp-for=@Model.PersonInfo.Surname></label>
+        </strong>
+        <label>@Model.PersonInfo?.Surname</label>
+    </p>
+    <p>
+        <strong>
+            <label asp-for=@Model.PersonInfo.LastName></label>
+        </strong>
+        <label>@Model.PersonInfo?.LastName</label>
+    </p>
+    <p>
+        <strong>
+            <label asp-for=@Model.PersonInfo.Gender></label>
+        </strong>
+        <label>@Model.PersonInfo?.Gender</label>
+    </p>
+    <p>
+        <strong>
+            <label asp-for=@Model.PersonInfo.DateOfBithd></label>
+        </strong>
+        <label>@Model.PersonInfo?.DateOfBithd</label>
+    </p>
+    <p>
+        <strong>
+            <label asp-for=@Model.PersonInfo.City></label>
+        </strong>
+        <label>@Model.PersonInfo?.City</label>
+    </p>
+    <strong>
+        <label asp-for=@Model.PersonInfo.Hobbies></label>
+    </strong>
+    @{
+        <ul>
+            @foreach (var item in @Model.PersonInfo?.Hobbies)
+            {
+                <li>@item</li>
+            }
+        </ul>
+    }
+</div>

@@ -1,0 +1,49 @@
+﻿@page
+@inject IPersonInfoItems items
+@model MyDataModel
+@{
+    ViewData["Title"] = "MyData page";
+}
+
+<div class="text-center justify-content-around col-6">
+    <form method="post">
+       <h4>Fill out form</h4>
+     <br/>
+     <div>
+            <input class="form-control" asp-for=@Model.PersonInfo.Surname type="text" placeholder="Surname" />
+            <br />
+            <input class="form-control"  asp-for=@Model.PersonInfo.Name type="text" placeholder="Name" />
+            <br />
+            <input class="form-control" asp-for=@Model.PersonInfo.LastName type="text" placeholder="Patronymic" />
+     </div>
+        <br />
+       <div>
+            <lable>Man</lable>
+            <input asp-for=@Model.PersonInfo.Gender value="Man" type="radio" />
+            <lable>Women</lable>
+            <input asp-for=@Model.PersonInfo.Gender type="radio" value="Women" />
+       </div>
+        <br />
+        <div>
+            <lable>Date of bithd</lable>
+            <br />
+            <input class="form-control" asp-for=@Model.PersonInfo.DateOfBithd type="date" placeholder="Date of bithd" />
+        </div>
+        <br />
+        <div>
+            <lable>Choose hobbies: </lable>
+            <select class="form-control" asp-for="@Model.PersonInfo.Hobbies" asp-items="@(new SelectList (items.HobbiesList))" multiple>
+                <option>Select hobbies</option>
+            </select>
+        </div>
+        <br />
+      <div>
+            <lable>Choose city: </lable>
+            <select class="form-control" asp-for=@Model.PersonInfo.City asp-items="@(new SelectList(items.CitiesList))">
+                <option>Select city</option>
+            </select>
+      </div>
+      <br />
+        <button type="submit" class="btn btn-primary">Send</button>
+    </form>
+</div>
